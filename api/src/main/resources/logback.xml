@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration>
+
+    <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d - [%thread] - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>
+                %d [%thread] %-5level %logger{36} [%file : %line] - %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--路径-->
+            <!--            <fileNamePattern>/var/log/tomcat/pms/info.%d.log</fileNamePattern>-->
+            <fileNamePattern>log/info.%d{yyyy-MM-dd_HH}.%i.log</fileNamePattern>
+            <!--设置保存10天 一天24个文件，一小时生成一个-->
+            <MaxHistory>240</MaxHistory>
+            <!--给定日志文件大小，超过指定的大小就新建一个日志文件-->
+            <maxFileSize>20MB</maxFileSize>
+            <totalSizeCap>10GB</totalSizeCap>  <!-- 总日志大小 -->
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+    </appender>
+
+
+    <appender name="fileErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder>
+            <pattern>
+                %d [%thread] %-5level %logger{36} [%file : %line] - %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--路径-->
+            <!--            <fileNamePattern>/var/log/tomcat/pms/error.%d.log</fileNamePattern>-->
+            <fileNamePattern>log/error.%d{yyyy-MM-dd_HH}.%i.log</fileNamePattern>
+            <!--设置保存10天 一天24个文件，一小时生成一个-->
+            <MaxHistory>240</MaxHistory>
+            <!--给定日志文件大小，超过指定的大小就新建一个日志文件-->
+            <maxFileSize>20MB</maxFileSize>
+            <totalSizeCap>10GB</totalSizeCap>  <!-- 总日志大小 -->
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="consoleLog" />
+        <appender-ref ref="fileInfoLog" />
+        <appender-ref ref="fileErrorLog" />
+    </root>
+
+</configuration>
