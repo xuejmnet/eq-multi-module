@@ -23,7 +23,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <easy-query.version>2.0.13</easy-query.version>
+        <easy-query.version>2.0.21</easy-query.version>
         <mysql.version>8.0.17</mysql.version>
         <hikaricp.version>3.3.1</hikaricp.version>
         <lombok.version>1.18.24</lombok.version>
@@ -48,6 +48,11 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>1.2.15</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>2.2.224</version>
         </dependency>
         <!-- mysql驱动 -->
         <dependency>

@@ -4,24 +4,22 @@ import com.easy.query.core.annotation.Column;
 import com.easy.query.core.annotation.EntityProxy;
 import com.easy.query.core.annotation.Table;
 import com.easy.query.core.proxy.ProxyEntityAvailable;
-import com.eq.multi.domain.proxy.TopicProxy;
+import com.eq.multi.domain.proxy.RoleMenuProxy;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
 /**
- * create time 2024/5/16 22:36
+ * create time 2024/6/2 09:24
  * 文件说明
  *
  * @author xuejiaming
  */
+@Table("t_role_menu")
 @Data
-@Table("t_topic")
 @EntityProxy
-public class Topic implements ProxyEntityAvailable<Topic , TopicProxy> {
+public class RoleMenu implements ProxyEntityAvailable<RoleMenu , RoleMenuProxy> {
     @Column(primaryKey = true)
     private String id;
-    private Integer stars;
-    private String title;
-    private LocalDateTime createTime;
+    private String roleId;
+    private String menuId;
+
 }

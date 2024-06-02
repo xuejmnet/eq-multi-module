@@ -1,4 +1,4 @@
-package com.eq.multi.api;
+package com.eq.multi.api.controller;
 
 import com.easy.query.api.proxy.client.EasyEntityQuery;
 import com.eq.multi.domain.Topic;
