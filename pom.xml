@@ -23,7 +23,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <easy-query.version>2.0.21</easy-query.version>
+        <easy-query.version>2.4.2</easy-query.version>
         <mysql.version>8.0.17</mysql.version>
         <hikaricp.version>3.3.1</hikaricp.version>
         <lombok.version>1.18.24</lombok.version>
